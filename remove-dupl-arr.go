@@ -10,7 +10,6 @@ import (
 func RemoveDuplicates(nums []int) int {
 	var (
 		toDeleteCount     int
-		totalDeletedCount int
 	)
 	var latestSameValue int
 	i := -1
@@ -30,10 +29,7 @@ func RemoveDuplicates(nums []int) int {
 			log.Printf("i: %+v, toDeleteCount: %+v, same value: %+v \n", i, toDeleteCount, nums[i])
 			continue
 		}
-		log.Println("totalDeletedCount", totalDeletedCount)
 		log.Println("toDeleteCount", toDeleteCount)
-		totalDeletedCount+=toDeleteCount
-		log.Println("totalDeletedCount", totalDeletedCount)
 		if toDeleteCount > 0 {
 			// 0 1 1 1 2
 			//   1     4
@@ -66,7 +62,6 @@ func RemoveDuplicates(nums []int) int {
 		}
 
 	}
-	log.Println("totalDeletedCount", totalDeletedCount)
 	log.Println("len(nums)", len(nums))
 	log.Println("lastGoodIndex", lastGoodIndex)
 	lastGoodLen := lastGoodIndex + 1
