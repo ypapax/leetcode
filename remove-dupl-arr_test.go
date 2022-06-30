@@ -15,6 +15,7 @@ func TestRemoveDuplicates(t *testing.T) {
 		expLeft int
 	}
 	cases := []testCase{
+		{inp: []int{1}, expArr: []int{1}, expLeft: 1},
 		{inp: []int{1,1,2}, expArr: []int{1,2}, expLeft: 2},
 		{inp: []int{0,0,1,1}, expArr: []int{0,1}, expLeft: 2},
 		{inp: []int{0,0,1,1,1}, expArr: []int{0,1}, expLeft: 2},

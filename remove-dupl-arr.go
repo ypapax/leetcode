@@ -8,6 +8,13 @@ import (
 
 // https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/727/
 func RemoveDuplicates(nums []int) int {
+	strArr := func(nums []int) string {
+		var vv []string
+		for i, v := range nums {
+			vv = append(vv, fmt.Sprintf("%+v:%+v", i, v))
+		}
+		return fmt.Sprintf("%+v   %+v", nums, strings.Join(vv, ", "))
+	}
 	var (
 		toDeleteCount     int
 	)
@@ -66,13 +73,9 @@ func RemoveDuplicates(nums []int) int {
 	log.Println("lastGoodIndex", lastGoodIndex)
 	lastGoodLen := lastGoodIndex + 1
 	lastGoodLenPlusSkippedOne := lastGoodLen + 1
+	if lastGoodLenPlusSkippedOne > len(nums) {
+		return len(nums)
+	}
 	return lastGoodLenPlusSkippedOne
 }
 
-func strArr(nums []int) string {
-	var vv []string
-	for i, v := range nums {
-		vv = append(vv, fmt.Sprintf("%+v:%+v", i, v))
-	}
-	return fmt.Sprintf("%+v   %+v", nums, strings.Join(vv, ", "))
-}
